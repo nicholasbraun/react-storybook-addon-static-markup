@@ -13,8 +13,6 @@ var _pretty = _interopRequireDefault(require("pretty"));
 
 var _prismjs = _interopRequireDefault(require("prismjs"));
 
-require("prismjs/components/prism-markup");
-
 var _server = _interopRequireDefault(require("react-dom/server"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -53,7 +51,7 @@ function (_React$Component) {
     value: function render() {
       var children = this.props.children;
 
-      var markup = _prismjs.default.highlight((0, _pretty.default)(_server.default.renderToStaticMarkup(children)), 'markup');
+      var markup = _prismjs.default.highlight((0, _pretty.default)(_server.default.renderToStaticMarkup(children)), _prismjs.default.languages.markup, 'markup');
 
       var channel = _addons.default.getChannel();
 
