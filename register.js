@@ -91,7 +91,7 @@ function (_React$Component) {
       return active ? _react.default.createElement("div", {
         style: styles.markupPanel,
         dangerouslySetInnerHTML: {
-          html: markup
+          __html: markup
         }
       }) : null;
     } // This is some cleanup tasks when the StaticMarkup panel is unmounting.
