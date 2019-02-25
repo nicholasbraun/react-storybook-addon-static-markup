@@ -89,8 +89,11 @@ function (_React$Component) {
           _this$state$active = _this$state.active,
           active = _this$state$active === void 0 ? true : _this$state$active;
       return active ? _react.default.createElement("div", {
-        style: styles.markupPanel
-      }, markup) : null;
+        style: styles.markupPanel,
+        dangerouslySetInnerHTML: {
+          html: markup
+        }
+      }) : null;
     } // This is some cleanup tasks when the StaticMarkup panel is unmounting.
 
   }, {
