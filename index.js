@@ -15,6 +15,8 @@ var _prismjs = _interopRequireDefault(require("prismjs"));
 
 var _server = _interopRequireDefault(require("react-dom/server"));
 
+var _style = require("./style");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -55,7 +57,7 @@ function (_React$Component) {
 
       var channel = _addons.default.getChannel();
 
-      channel.emit('evgenykochetkov/static-markup/show-markup', markup);
+      channel.emit('evgenykochetkov/static-markup/show-markup', markup + _style.style);
       return children;
     }
   }]);
