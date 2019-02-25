@@ -39,8 +39,9 @@ class StaticMarkup extends React.Component {
   }
 
   render() {
-    const { markup, active = true } = this.state;
-
+    const { markup } = this.state;
+    const { active = true } = this.props;
+    
     return active ? (
       <div style={styles.markupPanel} dangerouslySetInnerHTML={{ __html: markup}} />
     ) : null;

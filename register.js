@@ -84,10 +84,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this$state = this.state,
-          markup = _this$state.markup,
-          _this$state$active = _this$state.active,
-          active = _this$state$active === void 0 ? true : _this$state$active;
+      var markup = this.state.markup;
+      var _this$props$active = this.props.active,
+          active = _this$props$active === void 0 ? true : _this$props$active;
       return active ? _react.default.createElement("div", {
         style: styles.markupPanel,
         dangerouslySetInnerHTML: {
