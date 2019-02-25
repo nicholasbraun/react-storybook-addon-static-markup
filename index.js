@@ -1,85 +1,74 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ShowStaticMarkup = undefined;
+exports.default = exports.ShowStaticMarkup = void 0;
 
-var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+var _react = _interopRequireDefault(require("react"));
 
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+var _addons = _interopRequireDefault(require("@storybook/addons"));
 
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+var _pretty = _interopRequireDefault(require("pretty"));
 
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+var _prismMarkup = _interopRequireDefault(require("prismjs/components/prism-markup"));
 
-var _createClass2 = require('babel-runtime/helpers/createClass');
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = require('babel-runtime/helpers/inherits');
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _addons = require('@storybook/addons');
-
-var _addons2 = _interopRequireDefault(_addons);
-
-var _pretty = require('pretty');
-
-var _pretty2 = _interopRequireDefault(_pretty);
-
-var _prismjs = require('prismjs');
-
-var _prismjs2 = _interopRequireDefault(_prismjs);
-
-var _server = require('react-dom/server');
-
-var _server2 = _interopRequireDefault(_server);
+var _server = _interopRequireDefault(require("react-dom/server"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ShowStaticMarkup = exports.ShowStaticMarkup = function (_React$Component) {
-  (0, _inherits3.default)(ShowStaticMarkup, _React$Component);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var ShowStaticMarkup =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ShowStaticMarkup, _React$Component);
 
   function ShowStaticMarkup() {
-    (0, _classCallCheck3.default)(this, ShowStaticMarkup);
-    return (0, _possibleConstructorReturn3.default)(this, (ShowStaticMarkup.__proto__ || (0, _getPrototypeOf2.default)(ShowStaticMarkup)).apply(this, arguments));
+    _classCallCheck(this, ShowStaticMarkup);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ShowStaticMarkup).apply(this, arguments));
   }
 
-  (0, _createClass3.default)(ShowStaticMarkup, [{
-    key: 'render',
+  _createClass(ShowStaticMarkup, [{
+    key: "render",
     value: function render() {
       var children = this.props.children;
 
+      var markup = _prismMarkup.default.highlight((0, _pretty.default)(_server.default.renderToStaticMarkup(children)));
 
-      var markup = _prismjs2.default.highlight((0, _pretty2.default)(_server2.default.renderToStaticMarkup(children)));
+      var channel = _addons.default.getChannel();
 
-      var channel = _addons2.default.getChannel();
       channel.emit('evgenykochetkov/static-markup/show-markup', markup);
-
       return children;
     }
   }]);
-  return ShowStaticMarkup;
-}(_react2.default.Component);
 
-exports.default = {
+  return ShowStaticMarkup;
+}(_react.default.Component);
+
+exports.ShowStaticMarkup = ShowStaticMarkup;
+var _default = {
   addWithStaticMarkup: function addWithStaticMarkup(storyName, story) {
     this.add(storyName, function () {
-      return _react2.default.createElement(
-        ShowStaticMarkup,
-        null,
-        story()
-      );
+      return _react.default.createElement(ShowStaticMarkup, null, story());
     });
   }
 };
+exports.default = _default;
