@@ -10,7 +10,7 @@ export class ShowStaticMarkup extends React.Component {
   render() {
     const { children } = this.props;
 
-    const markup = Prism.highlight(pretty(ReactDOMServer.renderToStaticMarkup(children)));
+    const markup = Prism.highlight(pretty(ReactDOMServer.renderToStaticMarkup(children)), 'markup');
 
     const channel = addons.getChannel();
     channel.emit('evgenykochetkov/static-markup/show-markup', markup);

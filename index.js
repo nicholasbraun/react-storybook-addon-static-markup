@@ -53,7 +53,7 @@ function (_React$Component) {
     value: function render() {
       var children = this.props.children;
 
-      var markup = _prismjs.default.highlight((0, _pretty.default)(_server.default.renderToStaticMarkup(children)));
+      var markup = _prismjs.default.highlight((0, _pretty.default)(_server.default.renderToStaticMarkup(children)), 'markup');
 
       var channel = _addons.default.getChannel();
 
