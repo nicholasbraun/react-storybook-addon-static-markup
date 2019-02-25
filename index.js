@@ -11,7 +11,9 @@ var _addons = _interopRequireDefault(require("@storybook/addons"));
 
 var _pretty = _interopRequireDefault(require("pretty"));
 
-var _prismMarkup = _interopRequireDefault(require("prismjs/components/prism-markup"));
+var _prismjs = _interopRequireDefault(require("prismjs"));
+
+require("prismjs/components/prism-markup");
 
 var _server = _interopRequireDefault(require("react-dom/server"));
 
@@ -51,7 +53,7 @@ function (_React$Component) {
     value: function render() {
       var children = this.props.children;
 
-      var markup = _prismMarkup.default.highlight((0, _pretty.default)(_server.default.renderToStaticMarkup(children)));
+      var markup = _prismjs.default.highlight((0, _pretty.default)(_server.default.renderToStaticMarkup(children)));
 
       var channel = _addons.default.getChannel();
 
