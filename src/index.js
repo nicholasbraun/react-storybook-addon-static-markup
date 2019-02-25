@@ -1,7 +1,8 @@
 import React from 'react'
 import addons from '@storybook/addons';
 import pretty from 'pretty';
-import Prism from 'prismjs/components/prism-markup';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-markup';
 
 import ReactDOMServer from 'react-dom/server'
 
